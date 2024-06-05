@@ -1,0 +1,68 @@
+out_dir: results
+metric_best: mae
+accelerator: "cuda:0"
+mlflow:
+  use: False
+  project: Exp
+  name:
+wandb:
+    use: False
+    project:
+
+dataset:
+  format: PyG-np_37_case_13C
+  name: np_37_case_13C
+  task: node
+  task_type: regression
+  node_encoder: True
+  node_encoder_name: customAtom
+  node_encoder_bn: False
+  edge_encoder: True
+  edge_encoder_name: customBond
+  edge_encoder_bn: False
+  customAtom_num_features: 37
+  customBond_num_features: 4
+pretrained:
+  dir: pretrained/gt13C
+  reset_prediction_head: False
+train:
+  mode: GTNMR-inference
+  batch_size: 1
+model:
+    type: GritTransformer
+    loss_fun: l1
+    edge_decoding: dot
+gt:
+  layer_type: GritTransformer
+  layers: 8
+  n_heads: 8
+  dim_hidden: 64  # `gt.dim_hidden` must match `gnn.dim_inner`
+  dropout: 0.0
+  layer_norm: False
+  batch_norm: True
+  update_e: True
+  attn_dropout: 0.2
+  attn:
+    clamp: 5.
+    act: 'signed_sqrt'
+    full_attn: True
+    edge_enhance: True
+    O_e: True
+    norm_e: True
+    signed_sqrt: True
+gnn:
+  head: node_regression_head
+  layers_pre_mp: 0
+  layers_post_mp: 3  # Not used when `gnn.head: san_graph`
+  dim_inner: 64  # `gt.dim_hidden` must match `gnn.dim_inner`
+  batchnorm: True
+  act: signed_sqrt
+  dropout: 0.0
+  agg: mean
+  normalize_adj: False
+posenc_RRWP:
+  enable: True
+  ksteps: 20
+  add_identity: True
+  add_node_attr: False
+  add_inverse: False

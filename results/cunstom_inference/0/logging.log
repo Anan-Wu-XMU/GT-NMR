@@ -1,0 +1,10 @@
+[*] Updating cfg from pretrained model: pretrained/gt13C/config.yaml
+[*] Run ID 0: seed=0, split_index=0
+    Starting now: 2024-05-30 07:56:47.918971
+[*] Loaded dataset 'CustomInference' from 'PyG-CustomInference'
+Precomputing Positional Encoding statistics: ['RRWP'] for all graphs...
+  ...estimated to be undirected: True
+Done! Took 00:00:00.00
+[*] Loading from pretrained model: pretrained/gt13C/0/ckpt/42927.ckpt
+Results saved to /home/hcchen/GT-NMR-code-main/inference_output/inference_results_O=C(C(C(N)=O)=CN1)C=C1[C@@H](O)C2=CC=CC=C2.txt
+Done! took: 0.90s

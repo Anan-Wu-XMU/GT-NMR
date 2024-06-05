@@ -1,0 +1,545 @@
+[*] Run ID 1: seed=1, split_index=0
+    Starting now: 2024-05-29 00:31:02.416884
+[*] Loaded dataset 'gt1H' from 'PyG-gt1H':
+  Data(x=[217769, 37], edge_index=[2, 459792], edge_attr=[459792, 4], y=[217769], mask_node=[217769], infer_mask=[217769], is_train=[12806])
+  undirected: True
+  num graphs: 12806
+  avg num_nodes/graph: 17
+  num node features: 37
+  num edge features: 4
+  num classes: (appears to be a regression task)
+   Graph size distribution:
+     mean: 17.00523192253631
+     bin 0: [1.00, 5.50]: 262 (2.05%)
+     bin 1: [5.50, 10.00]: 1680 (13.12%)
+     bin 2: [10.00, 14.50]: 3470 (27.10%)
+     bin 3: [14.50, 19.00]: 2393 (18.69%)
+     bin 4: [19.00, 23.50]: 2468 (19.27%)
+     bin 5: [23.50, 28.00]: 1382 (10.79%)
+     bin 6: [28.00, 32.50]: 855 (6.68%)
+     bin 7: [32.50, 37.00]: 233 (1.82%)
+     bin 8: [37.00, 41.50]: 60 (0.47%)
+     bin 9: [41.50, 46.00]: 3 (0.02%)
+Precomputing Positional Encoding statistics: ['RRWP'] for all graphs...
+  ...estimated to be undirected: True
+Done! Took 00:00:08.83
+GraphGymModule(
+  (model): GritTransformer(
+    (encoder): FeatureEncoder(
+      (node_encoder): AtomEncoder(
+        (atom_embedding_list): ModuleList(
+          (0-36): 37 x Embedding(150, 64)
+        )
+      )
+      (edge_encoder): BondEncoder(
+        (bond_embedding_list): ModuleList(
+          (0-3): 4 x Embedding(50, 64)
+        )
+      )
+    )
+    (rrwp_abs_encoder): RRWPLinearNodeEncoder(
+      (fc): Linear(in_features=20, out_features=64, bias=False)
+    )
+    (rrwp_rel_encoder): RRWPLinearEdgeEncoder(pad_to_full_graph=True,fill_value=0.0,Linear(in_features=20, out_features=64, bias=False))
+    (layers): Sequential(
+      (0): GritTransformerLayer(in_channels=64, out_channels=64, heads=8, residual=True)
+      [GritTransformerLayer(
+        (act): SignedSqrt()
+        (attention): MultiHeadAttentionLayerGritSparse(
+          (dropout): Dropout(p=0.2, inplace=False)
+          (Q): Linear(in_features=64, out_features=64, bias=True)
+          (K): Linear(in_features=64, out_features=64, bias=False)
+          (E): Linear(in_features=64, out_features=128, bias=True)
+          (V): Linear(in_features=64, out_features=64, bias=False)
+          (act): SignedSqrt()
+        )
+        (O_h): Linear(in_features=64, out_features=64, bias=True)
+        (O_e): Linear(in_features=64, out_features=64, bias=True)
+        (batch_norm1_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (batch_norm1_e): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (FFN_h_layer1): Linear(in_features=64, out_features=128, bias=True)
+        (FFN_h_layer2): Linear(in_features=128, out_features=64, bias=True)
+        (batch_norm2_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )]
+      (1): GritTransformerLayer(in_channels=64, out_channels=64, heads=8, residual=True)
+      [GritTransformerLayer(
+        (act): SignedSqrt()
+        (attention): MultiHeadAttentionLayerGritSparse(
+          (dropout): Dropout(p=0.2, inplace=False)
+          (Q): Linear(in_features=64, out_features=64, bias=True)
+          (K): Linear(in_features=64, out_features=64, bias=False)
+          (E): Linear(in_features=64, out_features=128, bias=True)
+          (V): Linear(in_features=64, out_features=64, bias=False)
+          (act): SignedSqrt()
+        )
+        (O_h): Linear(in_features=64, out_features=64, bias=True)
+        (O_e): Linear(in_features=64, out_features=64, bias=True)
+        (batch_norm1_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (batch_norm1_e): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (FFN_h_layer1): Linear(in_features=64, out_features=128, bias=True)
+        (FFN_h_layer2): Linear(in_features=128, out_features=64, bias=True)
+        (batch_norm2_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )]
+      (2): GritTransformerLayer(in_channels=64, out_channels=64, heads=8, residual=True)
+      [GritTransformerLayer(
+        (act): SignedSqrt()
+        (attention): MultiHeadAttentionLayerGritSparse(
+          (dropout): Dropout(p=0.2, inplace=False)
+          (Q): Linear(in_features=64, out_features=64, bias=True)
+          (K): Linear(in_features=64, out_features=64, bias=False)
+          (E): Linear(in_features=64, out_features=128, bias=True)
+          (V): Linear(in_features=64, out_features=64, bias=False)
+          (act): SignedSqrt()
+        )
+        (O_h): Linear(in_features=64, out_features=64, bias=True)
+        (O_e): Linear(in_features=64, out_features=64, bias=True)
+        (batch_norm1_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (batch_norm1_e): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (FFN_h_layer1): Linear(in_features=64, out_features=128, bias=True)
+        (FFN_h_layer2): Linear(in_features=128, out_features=64, bias=True)
+        (batch_norm2_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )]
+      (3): GritTransformerLayer(in_channels=64, out_channels=64, heads=8, residual=True)
+      [GritTransformerLayer(
+        (act): SignedSqrt()
+        (attention): MultiHeadAttentionLayerGritSparse(
+          (dropout): Dropout(p=0.2, inplace=False)
+          (Q): Linear(in_features=64, out_features=64, bias=True)
+          (K): Linear(in_features=64, out_features=64, bias=False)
+          (E): Linear(in_features=64, out_features=128, bias=True)
+          (V): Linear(in_features=64, out_features=64, bias=False)
+          (act): SignedSqrt()
+        )
+        (O_h): Linear(in_features=64, out_features=64, bias=True)
+        (O_e): Linear(in_features=64, out_features=64, bias=True)
+        (batch_norm1_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (batch_norm1_e): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (FFN_h_layer1): Linear(in_features=64, out_features=128, bias=True)
+        (FFN_h_layer2): Linear(in_features=128, out_features=64, bias=True)
+        (batch_norm2_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )]
+      (4): GritTransformerLayer(in_channels=64, out_channels=64, heads=8, residual=True)
+      [GritTransformerLayer(
+        (act): SignedSqrt()
+        (attention): MultiHeadAttentionLayerGritSparse(
+          (dropout): Dropout(p=0.2, inplace=False)
+          (Q): Linear(in_features=64, out_features=64, bias=True)
+          (K): Linear(in_features=64, out_features=64, bias=False)
+          (E): Linear(in_features=64, out_features=128, bias=True)
+          (V): Linear(in_features=64, out_features=64, bias=False)
+          (act): SignedSqrt()
+        )
+        (O_h): Linear(in_features=64, out_features=64, bias=True)
+        (O_e): Linear(in_features=64, out_features=64, bias=True)
+        (batch_norm1_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (batch_norm1_e): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (FFN_h_layer1): Linear(in_features=64, out_features=128, bias=True)
+        (FFN_h_layer2): Linear(in_features=128, out_features=64, bias=True)
+        (batch_norm2_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )]
+      (5): GritTransformerLayer(in_channels=64, out_channels=64, heads=8, residual=True)
+      [GritTransformerLayer(
+        (act): SignedSqrt()
+        (attention): MultiHeadAttentionLayerGritSparse(
+          (dropout): Dropout(p=0.2, inplace=False)
+          (Q): Linear(in_features=64, out_features=64, bias=True)
+          (K): Linear(in_features=64, out_features=64, bias=False)
+          (E): Linear(in_features=64, out_features=128, bias=True)
+          (V): Linear(in_features=64, out_features=64, bias=False)
+          (act): SignedSqrt()
+        )
+        (O_h): Linear(in_features=64, out_features=64, bias=True)
+        (O_e): Linear(in_features=64, out_features=64, bias=True)
+        (batch_norm1_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (batch_norm1_e): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (FFN_h_layer1): Linear(in_features=64, out_features=128, bias=True)
+        (FFN_h_layer2): Linear(in_features=128, out_features=64, bias=True)
+        (batch_norm2_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )]
+      (6): GritTransformerLayer(in_channels=64, out_channels=64, heads=8, residual=True)
+      [GritTransformerLayer(
+        (act): SignedSqrt()
+        (attention): MultiHeadAttentionLayerGritSparse(
+          (dropout): Dropout(p=0.2, inplace=False)
+          (Q): Linear(in_features=64, out_features=64, bias=True)
+          (K): Linear(in_features=64, out_features=64, bias=False)
+          (E): Linear(in_features=64, out_features=128, bias=True)
+          (V): Linear(in_features=64, out_features=64, bias=False)
+          (act): SignedSqrt()
+        )
+        (O_h): Linear(in_features=64, out_features=64, bias=True)
+        (O_e): Linear(in_features=64, out_features=64, bias=True)
+        (batch_norm1_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (batch_norm1_e): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (FFN_h_layer1): Linear(in_features=64, out_features=128, bias=True)
+        (FFN_h_layer2): Linear(in_features=128, out_features=64, bias=True)
+        (batch_norm2_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )]
+      (7): GritTransformerLayer(in_channels=64, out_channels=64, heads=8, residual=True)
+      [GritTransformerLayer(
+        (act): SignedSqrt()
+        (attention): MultiHeadAttentionLayerGritSparse(
+          (dropout): Dropout(p=0.2, inplace=False)
+          (Q): Linear(in_features=64, out_features=64, bias=True)
+          (K): Linear(in_features=64, out_features=64, bias=False)
+          (E): Linear(in_features=64, out_features=128, bias=True)
+          (V): Linear(in_features=64, out_features=64, bias=False)
+          (act): SignedSqrt()
+        )
+        (O_h): Linear(in_features=64, out_features=64, bias=True)
+        (O_e): Linear(in_features=64, out_features=64, bias=True)
+        (batch_norm1_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (batch_norm1_e): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (FFN_h_layer1): Linear(in_features=64, out_features=128, bias=True)
+        (FFN_h_layer2): Linear(in_features=128, out_features=64, bias=True)
+        (batch_norm2_h): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )]
+    )
+    (post_mp): SANnoderegressionHead(
+      (FC_layers): ModuleList(
+        (0): Linear(in_features=64, out_features=32, bias=True)
+        (1): Linear(in_features=32, out_features=16, bias=True)
+        (2): Linear(in_features=16, out_features=1, bias=True)
+      )
+      (activation): SignedSqrt()
+    )
+  )
+)
+accelerator: cuda:0
+benchmark: False
+best_by_loss: False
+bn:
+  eps: 1e-05
+  mom: 0.1
+cfg_dest: config.yaml
+cfg_file: configs/gt1H.yaml
+custom_metrics: []
+dataset:
+  cache_load: False
+  cache_save: False
+  customAtom_num_features: 37
+  customBond_num_features: 4
+  dir: ./datasets
+  edge_dim: 128
+  edge_encoder: True
+  edge_encoder_bn: False
+  edge_encoder_name: customBond
+  edge_encoder_num_types: 0
+  edge_message_ratio: 0.8
+  edge_negative_sampling_ratio: 1.0
+  edge_train_mode: all
+  encoder: True
+  encoder_bn: True
+  encoder_dim: 128
+  encoder_name: db
+  format: PyG-gt1H
+  label_column: none
+  label_table: none
+  location: local
+  name: gt1H
+  node_encoder: True
+  node_encoder_bn: False
+  node_encoder_name: customAtom
+  node_encoder_num_types: 0
+  pe_transform_on_the_fly: False
+  remove_feature: False
+  resample_disjoint: False
+  resample_negative: False
+  shuffle_split: True
+  slic_compactness: 10
+  split: [0.8, 0.1, 0.1]
+  split_dir: ./splits
+  split_index: 0
+  split_mode: random
+  task: node
+  task_type: regression
+  to_undirected: False
+  transductive: False
+  transform: none
+  tu_simple: True
+device: cuda:0
+devices: 1
+example_arg: example
+example_group:
+  example_arg: example
+gnn:
+  act: signed_sqrt
+  agg: mean
+  att_final_linear: False
+  att_final_linear_bn: False
+  att_heads: 1
+  batchnorm: True
+  clear_feature: True
+  dim_edge: 64
+  dim_inner: 64
+  dropout: 0.0
+  head: node_regression_head
+  keep_edge: 0.5
+  l2norm: True
+  layer_type: generalconv
+  layers_mp: 2
+  layers_post_mp: 3
+  layers_pre_mp: 0
+  msg_direction: single
+  normalize_adj: False
+  residual: False
+  self_msg: concat
+  skip_every: 1
+  stage_type: stack
+gpu_mem: False
+gt:
+  attn:
+    O_e: True
+    act: signed_sqrt
+    clamp: 5.0
+    deg_scaler: True
+    edge_enhance: True
+    full_attn: True
+    norm_e: True
+    signed_sqrt: True
+    sparse: False
+    use: True
+    use_bias: False
+  attn_dropout: 0.2
+  batch_norm: True
+  bigbird:
+    add_cross_attention: False
+    attention_type: block_sparse
+    block_size: 3
+    chunk_size_feed_forward: 0
+    hidden_act: relu
+    is_decoder: False
+    layer_norm_eps: 1e-06
+    max_position_embeddings: 128
+    num_random_blocks: 3
+    use_bias: False
+  bn_momentum: 0.1
+  bn_no_runner: False
+  dim_hidden: 64
+  dropout: 0.0
+  full_graph: True
+  gamma: 1e-05
+  layer_norm: False
+  layer_type: GritTransformer
+  layers: 8
+  n_heads: 8
+  pna_degrees: []
+  residual: True
+  update_e: True
+mem:
+  inplace: False
+metric_agg: argmin
+metric_best: mae
+mlflow:
+  name: None
+  project: Exp
+  use: False
+model:
+  edge_decoding: dot
+  graph_pooling: add
+  loss_fun: l1
+  match_upper: True
+  size_average: mean
+  thresh: 0.5
+  type: GritTransformer
+name_tag: 
+num_threads: 6
+num_workers: 0
+optim:
+  base_lr: 0.001
+  batch_accumulation: 1
+  clip_grad_norm: True
+  early_stop_by_lr: False
+  early_stop_by_perf: False
+  lr_decay: 0.1
+  max_epoch: 50000
+  min_lr: 1e-06
+  min_lr_mode: threshold
+  momentum: 0.9
+  num_cycles: 0.5
+  num_warmup_epochs: 20
+  optimizer: adamW
+  reduce_factor: 0.5
+  schedule_patience: 10
+  scheduler: cosine_with_warmup
+  steps: [30, 60, 90]
+  stop_patience: 100
+  weight_decay: 1e-05
+out_dir: results/gt1H
+posenc_ElstaticSE:
+  dim_pe: 16
+  enable: False
+  kernel:
+    times: []
+    times_func: range(10)
+  layers: 3
+  model: none
+  n_heads: 4
+  pass_as_var: False
+  post_layers: 0
+  raw_norm_type: none
+posenc_EquivStableLapPE:
+  eigen:
+    eigvec_norm: L2
+    laplacian_norm: sym
+    max_freqs: 10
+  enable: False
+  raw_norm_type: none
+posenc_HKdiagSE:
+  dim_pe: 16
+  enable: False
+  kernel:
+    times: []
+    times_func: 
+  layers: 3
+  model: none
+  n_heads: 4
+  pass_as_var: False
+  post_layers: 0
+  raw_norm_type: none
+posenc_LapPE:
+  dim_pe: 16
+  eigen:
+    eigvec_norm: L2
+    laplacian_norm: sym
+    max_freqs: 10
+  enable: False
+  layers: 3
+  model: none
+  n_heads: 4
+  pass_as_var: False
+  post_layers: 0
+  raw_norm_type: none
+posenc_RRWP:
+  add_identity: True
+  add_inverse: False
+  add_node_attr: False
+  dim_pe: 16
+  enable: True
+  ksteps: 20
+  layers: 3
+  model: none
+  n_heads: 4
+  pass_as_var: False
+  post_layers: 0
+  raw_norm_type: none
+  spd: False
+posenc_RWSE:
+  dim_pe: 16
+  enable: False
+  kernel:
+    times: []
+    times_func: 
+  layers: 3
+  model: none
+  n_heads: 4
+  pass_as_var: False
+  post_layers: 0
+  raw_norm_type: none
+posenc_SignNet:
+  dim_pe: 16
+  eigen:
+    eigvec_norm: L2
+    laplacian_norm: sym
+    max_freqs: 10
+  enable: False
+  layers: 3
+  model: none
+  n_heads: 4
+  pass_as_var: False
+  phi_hidden_dim: 64
+  phi_out_dim: 4
+  post_layers: 0
+  raw_norm_type: none
+pretrained:
+  dir: 
+  freeze_main: False
+  reset_prediction_head: True
+print: both
+round: 5
+run_dir: results/gt1H/1
+run_id: 1
+run_multiple_splits: []
+seed: 1
+share:
+  dim_in: 37
+  dim_out: 1
+  num_splits: 3
+tensorboard_agg: True
+tensorboard_each_run: True
+train:
+  auto_resume: False
+  batch_size: 256
+  ckpt_best: True
+  ckpt_clean: True
+  ckpt_period: 100
+  enable_ckpt: True
+  epoch_resume: -1
+  eval_period: 1
+  iter_per_epoch: 32
+  mode: custom
+  neighbor_sizes: [20, 15, 10, 5]
+  node_per_graph: 32
+  radius: extend
+  sample_node: False
+  sampler: full_batch
+  skip_train_eval: False
+  walk_length: 4
+val:
+  node_per_graph: 32
+  radius: extend
+  sample_node: False
+  sampler: full_batch
+view_emb: False
+wandb:
+  entity: gtransformers
+  name: 
+  project: None
+  use: False
+work_dir: /home/hcchen/GT-NMR-code-main
+Num parameters: 746433
+Start from epoch 0
+train: {'epoch': 0, 'time_epoch': 7.00482, 'eta': 350234.16749, 'eta_hours': 97.28727, 'loss': 4.46362984, 'lr': 0.0, 'params': 746433, 'time_iter': 0.17085, 'mae': 4.46363, 'r2': -3.12109, 'spearmanr': 0.53576, 'mse': 25.50366, 'rmse': 5.05012}
+...computing epoch stats took: 0.02s
+val: {'epoch': 0, 'time_epoch': 0.52229, 'loss': 4.48863826, 'lr': 0, 'params': 746433, 'time_iter': 0.10446, 'mae': 4.48864, 'r2': -3.21684, 'spearmanr': 0.55102, 'mse': 25.56639, 'rmse': 5.05632}
+...computing epoch stats took: 0.01s
+test: {'epoch': 0, 'time_epoch': 0.52254, 'loss': 4.46465242, 'lr': 0, 'params': 746433, 'time_iter': 0.10451, 'mae': 4.46465, 'r2': -3.20784, 'spearmanr': 0.54235, 'mse': 25.31468, 'rmse': 5.03137}
+...computing epoch stats took: 0.01s
+> Epoch 0: took 8.1s (avg 8.1s) | Best so far: epoch 0	train_loss: 4.4636 train_mae: 4.4636	val_loss: 4.4886 val_mae: 4.4886	test_loss: 4.4647 test_mae: 4.4646
+-----------------------------------------------------------
+train: {'epoch': 1, 'time_epoch': 4.12734, 'eta': 278293.07516, 'eta_hours': 77.30363, 'loss': 3.97574885, 'lr': 5e-05, 'params': 746433, 'time_iter': 0.10067, 'mae': 3.97575, 'r2': -2.64578, 'spearmanr': -0.33428, 'mse': 22.56217, 'rmse': 4.74997}
+...computing epoch stats took: 0.02s
+val: {'epoch': 1, 'time_epoch': 0.28506, 'loss': 3.75125839, 'lr': 0, 'params': 746433, 'time_iter': 0.05701, 'mae': 3.75126, 'r2': -2.39868, 'spearmanr': -0.60859, 'mse': 20.60596, 'rmse': 4.53938}
+...computing epoch stats took: 0.01s
+test: {'epoch': 1, 'time_epoch': 0.28735, 'loss': 3.73307599, 'lr': 0, 'params': 746433, 'time_iter': 0.05747, 'mae': 3.73308, 'r2': -2.39893, 'spearmanr': -0.61532, 'mse': 20.4482, 'rmse': 4.52197}
+...computing epoch stats took: 0.01s
+> Epoch 1: took 4.7s (avg 6.4s) | Best so far: epoch 1	train_loss: 3.9757 train_mae: 3.9758	val_loss: 3.7513 val_mae: 3.7513	test_loss: 3.7331 test_mae: 3.7331
+-----------------------------------------------------------
+train: {'epoch': 2, 'time_epoch': 4.13598, 'eta': 254453.90401, 'eta_hours': 70.68164, 'loss': 3.44996322, 'lr': 0.0001, 'params': 746433, 'time_iter': 0.10088, 'mae': 3.44996, 'r2': -1.90898, 'spearmanr': -0.17335, 'mse': 18.0024, 'rmse': 4.24292}
+...computing epoch stats took: 0.02s
+val: {'epoch': 2, 'time_epoch': 0.28782, 'loss': 3.27802082, 'lr': 0, 'params': 746433, 'time_iter': 0.05756, 'mae': 3.27802, 'r2': -1.66626, 'spearmanr': 0.01077, 'mse': 16.16538, 'rmse': 4.02062}
+...computing epoch stats took: 0.01s
+test: {'epoch': 2, 'time_epoch': 0.28814, 'loss': 3.25719979, 'lr': 0, 'params': 746433, 'time_iter': 0.05763, 'mae': 3.2572, 'r2': -1.65765, 'spearmanr': -0.00036, 'mse': 15.98863, 'rmse': 3.99858}
+...computing epoch stats took: 0.01s
+> Epoch 2: took 4.7s (avg 5.9s) | Best so far: epoch 2	train_loss: 3.4500 train_mae: 3.4500	val_loss: 3.2780 val_mae: 3.2780	test_loss: 3.2572 test_mae: 3.2572
+-----------------------------------------------------------
+train: {'epoch': 3, 'time_epoch': 4.05891, 'eta': 241568.97638, 'eta_hours': 67.10249, 'loss': 3.03100201, 'lr': 0.00015, 'params': 746433, 'time_iter': 0.099, 'mae': 3.031, 'r2': -1.30752, 'spearmanr': 0.24106, 'mse': 14.28028, 'rmse': 3.77893}
+val: {'epoch': 3, 'time_epoch': 0.28403, 'loss': 2.89081354, 'lr': 0, 'params': 746433, 'time_iter': 0.05681, 'mae': 2.89081, 'r2': -1.13444, 'spearmanr': 0.62331, 'mse': 12.94099, 'rmse': 3.59736}
+test: {'epoch': 3, 'time_epoch': 0.28585, 'loss': 2.87356324, 'lr': 0, 'params': 746433, 'time_iter': 0.05717, 'mae': 2.87356, 'r2': -1.1247, 'spearmanr': 0.63919, 'mse': 12.78237, 'rmse': 3.57524}
+> Epoch 3: took 4.7s (avg 5.6s) | Best so far: epoch 3	train_loss: 3.0310 train_mae: 3.0310	val_loss: 2.8908 val_mae: 2.8908	test_loss: 2.8736 test_mae: 2.8736
+-----------------------------------------------------------
+train: {'epoch': 4, 'time_epoch': 4.92598, 'eta': 242506.22162, 'eta_hours': 67.36284, 'loss': 2.57740491, 'lr': 0.0002, 'params': 746433, 'time_iter': 0.12015, 'mae': 2.5774, 'r2': -0.76736, 'spearmanr': 0.62556, 'mse': 10.93742, 'rmse': 3.30718}
+val: {'epoch': 4, 'time_epoch': 0.40927, 'loss': 2.33781547, 'lr': 0, 'params': 746433, 'time_iter': 0.08185, 'mae': 2.33782, 'r2': -0.53122, 'spearmanr': 0.81928, 'mse': 9.28369, 'rmse': 3.04691}
+test: {'epoch': 4, 'time_epoch': 0.41902, 'loss': 2.32311227, 'lr': 0, 'params': 746433, 'time_iter': 0.0838, 'mae': 2.32311, 'r2': -0.52284, 'spearmanr': 0.82298, 'mse': 9.16154, 'rmse': 3.0268}
+> Epoch 4: took 5.8s (avg 5.6s) | Best so far: epoch 4	train_loss: 2.5774 train_mae: 2.5774	val_loss: 2.3378 val_mae: 2.3378	test_loss: 2.3231 test_mae: 2.3231
+-----------------------------------------------------------
+train: {'epoch': 5, 'time_epoch': 4.32885, 'eta': 238153.87738, 'eta_hours': 66.15385, 'loss': 2.08976642, 'lr': 0.00025, 'params': 746433, 'time_iter': 0.10558, 'mae': 2.08977, 'r2': -0.26337, 'spearmanr': 0.72882, 'mse': 7.81847, 'rmse': 2.79615}
+val: {'epoch': 5, 'time_epoch': 0.29652, 'loss': 1.85381157, 'lr': 0, 'params': 746433, 'time_iter': 0.0593, 'mae': 1.85381, 'r2': -0.05377, 'spearmanr': 0.77783, 'mse': 6.38897, 'rmse': 2.52764}
+test: {'epoch': 5, 'time_epoch': 0.29084, 'loss': 1.84000245, 'lr': 0, 'params': 746433, 'time_iter': 0.05817, 'mae': 1.84, 'r2': -0.04629, 'spearmanr': 0.77854, 'mse': 6.29453, 'rmse': 2.50889}
+> Epoch 5: took 5.0s (avg 5.5s) | Best so far: epoch 5	train_loss: 2.0898 train_mae: 2.0898	val_loss: 1.8538 val_mae: 1.8538	test_loss: 1.8400 test_mae: 1.8400
+-----------------------------------------------------------
+train: {'epoch': 6, 'time_epoch': 4.13281, 'eta': 233643.72567, 'eta_hours': 64.90103, 'loss': 1.63914713, 'lr': 0.0003, 'params': 746433, 'time_iter': 0.1008, 'mae': 1.63915, 'r2': 0.17552, 'spearmanr': 0.82796, 'mse': 5.10237, 'rmse': 2.25884}
+val: {'epoch': 6, 'time_epoch': 0.28771, 'loss': 1.43853971, 'lr': 0, 'params': 746433, 'time_iter': 0.05754, 'mae': 1.43854, 'r2': 0.33872, 'spearmanr': 0.87544, 'mse': 4.00932, 'rmse': 2.00233}
+test: {'epoch': 6, 'time_epoch': 0.28637, 'loss': 1.427697, 'lr': 0, 'params': 746433, 'time_iter': 0.05727, 'mae': 1.4277, 'r2': 0.3458, 'spearmanr': 0.87692, 'mse': 3.93571, 'rmse': 1.98386}
+> Epoch 6: took 4.7s (avg 5.4s) | Best so far: epoch 6	train_loss: 1.6391 train_mae: 1.6392	val_loss: 1.4385 val_mae: 1.4385	test_loss: 1.4277 test_mae: 1.4277
+-----------------------------------------------------------
