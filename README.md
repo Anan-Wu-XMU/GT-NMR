@@ -34,30 +34,23 @@
    python main.py --cfg configs/cunstom_inference.yaml accelerator "cuda:0" dataset.inference 'CN1C(CCC1=N)C(O)=O'
    ```
    ```angular2html
-   the output will be:
+   the output will be located in the directory inference_output
    
    ```
 2. Prediction by inputting a SMILES file, 'smiles.csv' for example, the file should be in the format of 'smiles' column. and the path of the file is ./inference_files
    ```bash
     python main.py --cfg configs/cunstom_inference.yaml accelerator "cuda:0" dataset.inference 'smiles.csv'
     ```
-    ```angular2html
-   
-    ```
+
 3. Prediction by inputting a mol file, the path of the mol file is ./inference_files
    ```bash
     python main.py --cfg configs/cunstom_inference.yaml accelerator "cuda:0" dataset.inference 'mol_example.mol'
-    ```
-    ```angular2html
-   
-    ```
+   ```
 4. Prediction by inputting mol files in a folder, the path of the folder is ./inference_files/mols
    ```bash
     python main.py --cfg configs/cunstom_inference.yaml accelerator "cuda:0" dataset.inference 'mols'
     ```
-    ```angular2html
-   
-    ```
+
 
 
 
